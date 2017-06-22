@@ -14,7 +14,9 @@ DBNAME = "library"
 Dir[File.join(File.dirname(__FILE__), "../app/models", "*.rb")].each {|f| require f}
 Dir[File.join(File.dirname(__FILE__), "../lib/support", "*.rb")].each {|f| require f}
 
-DBRegistry[ENV["ACTIVE_RECORD_ENV"]].connect!
+# ActiveRecord::Base.establish_connection(:adapter => 'sqlite3',:database =>"db/#{DBNAME}-development.db")
+
+DBRegistry["development"].connect!
 DB = ActiveRecord::Base.connection
 
 if ENV["ACTIVE_RECORD_ENV"] == "test"

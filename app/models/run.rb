@@ -1,3 +1,4 @@
+
 class Run
 
   def initialize
@@ -6,7 +7,6 @@ class Run
     User.get_category.books
     book = User.choose_book
     Checkout.new(user, book)
-
   end
 
 end
